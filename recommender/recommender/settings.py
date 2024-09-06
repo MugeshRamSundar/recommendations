@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-(hz9(a0$93(9w5@=o50_&l1fa6j*m2hh8okh&y0i10ws7&cr$+
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '9d46-14-102-13-146.ngrok-free.app'
+    '*'
 ]
 
 
@@ -77,12 +76,12 @@ WSGI_APPLICATION = 'recommender.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

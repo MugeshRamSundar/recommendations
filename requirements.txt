@@ -1,0 +1,4 @@
+django
+scikit-learn
+pymongo
+gunicorn

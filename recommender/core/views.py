@@ -14,12 +14,6 @@ printer = pprint.PrettyPrinter(indent=4)
 def home(request):
     return HttpResponse("WELCOME TO GIGA-MEGA RECOMMENDER use /recommender/userid to get recommendations")
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from bson import ObjectId
-from django.http import JsonResponse
-import pprint
-
 printer = pprint.PrettyPrinter(indent=4)
 
 def preprocess_text(text):
@@ -67,8 +61,8 @@ def job_recommendations(request, user_id):
                     "title": job["title"],
                     "category": job["category"],
                     "salary": job["salary"],
-                    "companyId": job["companyId"],
-                    "employer": job["employer"],
+                    "companyId": str(job["companyId"]),
+                    # "employer": job["employer"],
                     "images": job["images"],
                     "location": job["location"],
                     "experience": job["experience"],
@@ -87,6 +81,6 @@ def job_recommendations(request, user_id):
         
         # Print and return the response
         printer.pprint(response_data)
-        return JsonResponse(response_data, safe=False)
+        return JsonResponse(response_data)
     else:
         return JsonResponse({"error": "Unsupported HTTP method"}, status=405)

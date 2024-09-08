@@ -83,7 +83,7 @@ def job_recommendations(request, user_id):
                     "date": job["date"],
                     "createdAt": job["createdAt"],
                     "similarity_score": round(score, 2)
-                } for job, score in recommended_jobs if score > 0
+                } for job, score in recommended_jobs if score > 0.2
             ]
         }
         

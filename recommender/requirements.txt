@@ -2,3 +2,4 @@ django
 scikit-learn
 pymongo
 gunicorn
+django-cors-headers

@@ -65,7 +65,21 @@ def job_recommendations(request, user_id):
                 {
                     "job_id": str(job["_id"]),
                     "title": job["title"],
+                    "category": job["category"],
+                    "salary": job["salary"],
+                    "companyId": job["companyId"],
+                    "employer": job["employer"],
+                    "images": job["images"],
+                    "location": job["location"],
+                    "experience": job["experience"],
                     "skills": job["skills"],
+                    "jobType": job["jobType"],
+                    "locationType": job["locationType"],
+                    "education": job["education"],
+                    "deadline": job["deadline"],
+                    "vacancy": job["vacancy"],
+                    "date": job["date"],
+                    "createdAt": job["createdAt"],
                     "similarity_score": round(score, 2)
                 } for job, score in recommended_jobs[:5] if score > 0
             ]

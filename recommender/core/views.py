@@ -57,7 +57,7 @@ def job_recommendations(request, user_id):
             },
             "recommended_jobs": [
                 {
-                    "job_id": str(job["_id"]),
+                    "_id": str(job["_id"]),
                     "title": job["title"],
                     "category": job["category"],
                     "salary": job["salary"],

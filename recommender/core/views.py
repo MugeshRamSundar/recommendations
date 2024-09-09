@@ -71,7 +71,7 @@ def job_recommendations(request, user_id):
                                  "companyVerification": job["employer"]["companyVerification"],
                                  "createdAt": job["employer"]["createdAt"],
                                  },
-                    "images": job["images"],
+                    "image": job["image"],
                     "location": job["location"],
                     "experience": job["experience"],
                     "skills": job["skills"],

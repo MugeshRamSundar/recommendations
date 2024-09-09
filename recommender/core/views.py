@@ -33,7 +33,7 @@ def job_recommendations(request, user_id):
 
         jobs = list(db.jobs.find({}))
         job_descriptions = [preprocess_text("".join(job["category"]+ " " + job['location'] + " " + job["skills"] + " " + job["jobType"])) for job in jobs]
-
+        print(job_descriptions)
 
         if not any(job_descriptions):
             return JsonResponse({"error": "No job descriptions available"}, status=404)
@@ -48,7 +48,7 @@ def job_recommendations(request, user_id):
         similarity_scores = cosine_similarity(user_vector, job_vectors).flatten()
 
         recommended_jobs = sorted(zip(jobs, similarity_scores), key=lambda x: x[1], reverse=True)
-
+        printer.pprint(recommended_jobs)
         response_data = {
             "user_details": {
                 "id": str(user["_id"]),
@@ -83,7 +83,8 @@ def job_recommendations(request, user_id):
                     "date": job["date"],
                     "createdAt": job["createdAt"],
                     "similarity_score": round(score, 2)
-                } for job, score in recommended_jobs if score > 0.2
+                } for job, score in recommended_jobs
+                # } for job, score in recommended_jobs if score > 0.2
             ]
         }
         

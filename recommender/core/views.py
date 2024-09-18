@@ -20,7 +20,7 @@ def preprocess_text(text):
 
     return text.lower().strip()
 
-
+#WHAT DO  YOU MEAN
 
 def job_recommendations(request, user_id):
     if request.method == 'GET':
